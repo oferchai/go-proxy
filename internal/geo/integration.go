@@ -16,16 +16,16 @@ var (
 )
 
 // Initialize sets up the global geocache instance
-func Initialize(redisDSN string, memoryCacheSize int, debug bool) error {
+func Initialize(redisDSN string, memoryCacheSize int) error {
 	var err error
-	globalGeoCache, err = NewGeoCache(redisDSN, memoryCacheSize, debug)
+	globalGeoCache, err = NewGeoCache(redisDSN, memoryCacheSize)
 	if err != nil {
 		return fmt.Errorf("failed to initialize geo cache: %w", err)
 	}
 
 	// Load data from Redis into memory cache on startup
-	if err := preloadFromRedis(); err != nil && debug {
-		log.Printf("[GEO WARNING] Failed to preload geo data from Redis: %v", err)
+	if err := preloadFromRedis(); err != nil {
+		log.Printf("Warning: Failed to preload geo data from Redis: %v", err)
 		// Non-fatal error, continue
 	}
 
@@ -47,15 +47,13 @@ func preloadFromRedis() error {
 	if err != nil {
 		return fmt.Errorf("failed to get geo keys from Redis: %w", err)
 	}
-	// Only log in debug mode
-	if globalGeoCache.debugMode {
-		log.Printf("[GEO INFO] Preloading %d geolocation records from Redis", len(keys))
-	}
-	
+
+	log.Printf("Preloading %d geolocation records from Redis", len(keys))
+
 	// Load data for each key
 	for _, key := range keys {
 		host := strings.TrimPrefix(key, "geo:")
-		
+
 		// Get the data
 		data, err := redis.Bytes(conn.Do("GET", key))
 		if err != nil {
