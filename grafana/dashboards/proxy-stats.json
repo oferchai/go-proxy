@@ -1,0 +1,52 @@
+{
+  "title": "Proxy Statistics",
+  "panels": [
+    {
+      "title": "Connections per Host",
+      "type": "graph",
+      "datasource": "Redis",
+      "targets": [
+        {
+          "query": "HOST:*:HOUR:*",
+          "type": "timeseries",
+          "metric": "connections"
+        }
+      ]
+    },
+    {
+      "title": "Bytes Transferred",
+      "type": "graph",
+      "datasource": "Redis",
+      "targets": [
+        {
+          "query": "HOST:*:HOUR:*",
+          "type": "timeseries",
+          "metric": "bytes"
+        }
+      ]
+    },
+    {
+      "title": "Blocked Attempts",
+      "type": "stat",
+      "datasource": "Redis",
+      "targets": [
+        {
+          "query": "HOST:*:HOUR:*",
+          "type": "timeseries",
+          "metric": "blocked"
+        }
+      ]
+    },
+    {
+      "title": "Top Hosts",
+      "type": "table",
+      "datasource": "Redis",
+      "targets": [
+        {
+          "query": "HOST:*:DAY:*",
+          "type": "table"
+        }
+      ]
+    }
+  ]
+} 

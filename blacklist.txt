@@ -1,0 +1,13 @@
+# Comments start with #
+.*\.doubleclick\.net
+.*\.googlesyndication\.com
+.*\.adserver\..*
+.*\.ads\..*
+.*outbrain.*
+.*tabola.*
+.*\.youtube\.com/api/stats/ads.*
+.*\.youtube\.com/get_video_info.*adformat.*
+.*aax.amazon-adsystem.*
+.*ad-delivery.net.*
+.*ads.google.com.*
+.*ads.one.co.il.*
