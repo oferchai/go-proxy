@@ -74,6 +74,9 @@ The proxy can be configured using the following command-line flags:
 
 ## Installation and Usage
 
+For detailed deployment instructions, please see the [Deployment Guide](DEPLOYMENT.md).
+
+
 ### Prerequisites
 
 *   Go 1.21 or later
