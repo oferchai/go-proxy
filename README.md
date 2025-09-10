@@ -102,6 +102,36 @@ The proxy can be configured using the following command-line flags:
 ./proxy -http-port 8888 -https-port 8889 -redis-addr localhost:6379
 ```
 
+## Client Applications
+
+The `dashboard/pdash` directory contains several Python-based client applications for visualizing the data from the Go-Proxy API.
+
+### Geolocation Dashboard
+
+*   **File:** `geo_dashboard.py`
+*   **Framework:** Streamlit
+*   **Description:** A dashboard for visualizing the geolocation of requested hosts. It displays a summary of the number of hosts, countries, and cities, as well as a world map showing the distribution of hosts.
+
+### Network Statistics Dashboards
+
+There are several versions of the network statistics dashboard, built with both Dash and Streamlit.
+
+*   **`pdash.py`:**
+    *   **Framework:** Dash
+    *   **Description:** A basic dashboard for visualizing network statistics. It includes charts for connections per host, request count per host, and a pie chart for blocked vs. unblocked hosts.
+
+*   **`sdash.py`, `sdash1.py`, `sdash2.py`:**
+    *   **Framework:** Streamlit
+    *   **Description:** These are various iterations of a Streamlit-based dashboard for visualizing network statistics. They provide similar functionality to the Dash-based dashboard, with some variations in layout and styling.
+
+*   **`streamlit_dashboard.py` and `streamlit_dashboard_enhanced.py`:**
+    *   **Framework:** Streamlit
+    *   **Description:** These are the most feature-rich versions of the Streamlit dashboard. They include features such as:
+        *   Time-series analysis of network traffic.
+        *   Filtering by host, date range, and blocked status.
+        *   The ability to download the data as a CSV file.
+        *   A more polished and user-friendly interface.
+
 ## Future Features
 
 *   **Authentication:** Add support for proxy authentication (e.g., basic auth, OAuth2).
