@@ -72,9 +72,11 @@ The proxy can be configured using the following command-line flags:
 *   `-geo-enabled`: Enable or disable geolocation (default: false).
 *   `-geo-cache-size`: The size of the geolocation in-memory cache (default: 1024).
 
-## Installation and Usage
+## Documentation
 
-For detailed deployment instructions, please see the [Deployment Guide](DEPLOYMENT.md).
+*   [Deployment Guide](DEPLOYMENT.md)
+*   [Coding Style Guide](CODING_STYLE.md)
+*   [Architecture](ARCHITECTURE.md)
 
 
 ### Prerequisites
